@@ -11,3 +11,32 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+export PATH="$HOME/.bin:$PATH"
+export PATH="$PATH:/usr/local/lib/node_modules"
+
+# export PATH="$HOME/.rbenv/bin:$PATH" #rbenv path
+# eval "$(rbenv init - zsh --no-rehash)"
+unsetopt AUTO_CD
+
+alias g=git
+alias pglog='tail -f /usr/local/var/postgres/server.log'
+alias dir='ls -la'
+alias gulp-debug='node-debug $(which gulp)'
+alias rm='rm -f'
+alias db='LOG_LEVEL=debug gulp import:s3projects'
+alias flushdns='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
+alias backup='rsync -avh --delete'
+alias backup-devonthink='rsync -avh --delete ~/Documents/DevonThink /Volumes/Chad\ Dumler/rsync'
+alias sshfs-poseidon='sshfs chad@poseidon.d16r.us:/home/chad/documents /Users/chad/documents'
+alias entar='tar -cvzf'
+alias untar='tar -xvf'
+
+export NVM_DIR="/Users/chad/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Coreutils
+# PATH=$PATH:/usr/local/opt/coreutils/libexec/gnubin
+# MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+alias easytether-disable='kextunload /System/Library/Extensions/EasyTetherUSBEthernet.kext'
+alias easytether-enable='kextload /System/Library/Extensions/EasyTetherUSBEthernet.kext'
